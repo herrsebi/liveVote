@@ -1,9 +1,12 @@
-h1= title
-p Welcome to #{title}
-#chat
-input(type='text', id='txtarea', onkeypress='onKeyChange();', onchange="validateField();")
-button#eclipse(value='Eclipse') Eclipse
-button#netbeans(value='Netbeans') Netbeans
-button#storm(value='Storm') Storm
+div(data-role="page")
+	h1= title
+	p Welcome to #{title}
+	#chat
+	.ui-bar(data-role='footer',data-position='fixed')
+		input(type='text', id='txtarea', onkeypress='onKeyChange();', onchange="validateField();")
+		a#eclipse(data-role='button', value='Eclipse') Eclipse
+		a#netbeans(data-role='button', value='Netbeans') Netbeans
+		a#storm(data-role='button',value='Storm') Storm
+script(type='text/javascript', src='http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.js')
 script(type='text/javascript', src='/socket.io/socket.io.js')
 script(type='text/javascript', src='/javascripts/socket.js')

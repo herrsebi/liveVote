@@ -1,4 +1,21 @@
 #graph
-	p #{netbeans}
-	p #{eclipse}
-	p #{storm}
+	.numberCircle.gruen 
+		p#Netbeans #{netbeans}
+	.numberCircle.blau
+		p#Eclipse #{eclipse}
+	.numberCircle.rot
+		p#Storm #{storm}
+script(type='text/javascript', src='/socket.io/socket.io.js')
+script(type='text/javascript')
+	var socket = io.connect('http://localhost');
+	socket.on('message', function(msg){
+		$("#chat").append("<p>" + msg +"</p>");
+	});
+	socket.on('upvote', function(data){
+		var val = parseInt($("#"+data).html());
+		$("#"+data).html(val+1);
+	});
+	socket.on('downvote', function(data){
+		var val = parseInt($("#"+data).html());
+		$("#"+data).html(val-1);
+	});

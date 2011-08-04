@@ -30,7 +30,8 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Express'
+    title: 'Express',
+    layout: 'layoutMobile.jade'
   });
 });
 
@@ -90,9 +91,11 @@ io.sockets.on('connection', function (socket) {
 		socket.get('writeClient', function(err,writeClient){
 			socket.get('currentVote', function(err,currentVote){
 				writeClient.decr(currentVote);
+				socket.broadcast.emit('downvote',currentVote);
 			});
 			writeClient.incr(data);
 			writeClient.publish('chat','Vote for :' + data);
+			socket.broadcast.emit('upvote', data);
 		});
 		socket.set('currentVote', data);
 	});

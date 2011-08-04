@@ -168,20 +168,31 @@ a:hover { color: #036; }
  * Author: 
  */
 
+.numberCircle {
+	min-height : 400px;
+	min-width : 400px;
+	float : left;
+	background-repeat: none;
+}
 
+.numberCircle p {
+	text-align: center; 
+	font-size : 10em;
+	margin-top : 100px;
+	color : white;
+	font-family : Times New Roman, Serif;
+	font-style : italic;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.gruen {
+	background-image : url(/images/gruen.png);
+}
+.blau {
+	background-image : url(/images/blau.png);
+}
+.rot {
+	background-image : url(/images/rot.png);
+}
 
 /**
  * Non-semantic helper classes: please define your styles before this section.
